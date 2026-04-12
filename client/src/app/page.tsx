@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useInView } from 'framer-motion';
-import Link from 'next/link';
+// Link import removed — display-only mode
 import Image from 'next/image';
 import { Lobster, Poppins, Cormorant_Garamond, Lora } from 'next/font/google';
 import GallerySection from './components/GallerySection';
@@ -159,7 +159,7 @@ export default function Home() {
         <main className={`${cormorant.variable} ${poppins.variable} ${lobster.variable} ${cormorant.className} text-[var(--text-primary)]`}>
 
             {/* ── Hero — natural scroll, no sticky, no transforms ── */}
-            <section className="noise-overlay relative overflow-hidden min-h-[92vh] flex items-center"
+            <section className="noise-overlay relative overflow-hidden min-h-screen flex items-center pt-[72px] sm:pt-[80px]"
                 style={{
                     background: `
                         radial-gradient(ellipse 70% 50% at 25% 30%, rgba(244,226,216,0.8) 0%, transparent 60%),
@@ -196,13 +196,13 @@ export default function Home() {
                                 Generate personalized cards and custom songs. Because the card you send should be as unique as they are.
                             </p>
                             <div className="reveal-up delay-4 mt-8 sm:mt-12 flex flex-col sm:flex-row items-center md:items-start gap-4">
-                                <Link href="/signup" className={`${poppins.className} font-bold btn-matte inline-flex items-center gap-0 px-8 sm:px-12 py-3.5 sm:py-4.5 rounded-full text-[13px] sm:text-[14px] tracking-[0.06em] uppercase shadow-lg`}>
+                                <span className={`${poppins.className} font-bold btn-matte inline-flex items-center gap-0 px-8 sm:px-12 py-3.5 sm:py-4.5 rounded-full text-[13px] sm:text-[14px] tracking-[0.06em] uppercase shadow-lg cursor-pointer`}>
                                     Start for Free
                                     <span className="btn-arrow translate-y-[0.5px]">→</span>
-                                </Link>
-                                <Link href="/login" className={`${poppins.className} font-semibold inline-block px-6 sm:px-8 py-3 sm:py-4 rounded-full text-[12px] sm:text-[13px] text-[var(--text-secondary)] border-2 border-[var(--accent-gold)]/40 hover:border-[var(--accent-gold)] hover:bg-[var(--accent-champagne)]/10 transition-all duration-400`}>
+                                </span>
+                                <span className={`${poppins.className} font-semibold inline-block px-6 sm:px-8 py-3 sm:py-4 rounded-full text-[12px] sm:text-[13px] text-[var(--text-secondary)] border-2 border-[var(--accent-gold)]/40 hover:border-[var(--accent-gold)] hover:bg-[var(--accent-champagne)]/10 transition-all duration-400 cursor-pointer`}>
                                     Log In
-                                </Link>
+                                </span>
                             </div>
                             <p className={`${poppins.className} font-extralight reveal-up delay-5 text-[10px] text-[var(--text-muted)] mt-4 md:ml-4 tracking-[0.25em] uppercase`}>
                                 Includes 1 free image generation and 1 free song
@@ -308,10 +308,10 @@ export default function Home() {
                                         style={{ background: 'rgba(42, 32, 25, 0.6)', backdropFilter: 'blur(4px)' }}>
                                         CC &nbsp; Auto-captions enabled
                                     </div>
-                                    <button className={`${poppins.className} absolute top-4 right-4 px-5 py-2 rounded-full border border-[var(--accent-gold)]/20 text-[var(--accent-champagne)]/60 text-[10px] font-semibold hover:border-[var(--accent-gold)]/40 hover:text-[var(--accent-champagne)] transition-all tracking-wider uppercase`}
+                                    <span className={`${poppins.className} absolute top-4 right-4 px-5 py-2 rounded-full border border-[var(--accent-gold)]/20 text-[var(--accent-champagne)]/60 text-[10px] font-semibold tracking-wider uppercase cursor-pointer`}
                                         style={{ background: 'rgba(42, 32, 25, 0.5)', backdropFilter: 'blur(4px)' }}>
                                         Skip for now
-                                    </button>
+                                    </span>
                                     <div className={`${poppins.className} absolute bottom-4 right-4 text-[10px] text-[var(--accent-champagne)]/40 tracking-wider`}>
                                         0:00 / 1:28
                                     </div>
@@ -410,12 +410,12 @@ export default function Home() {
                                         >
                                             Quick answers to the most common questions.
                                         </motion.p>
-                                        <Link href="/faq" className={`${poppins.className} font-semibold inline-flex items-center gap-2 text-[12px] text-[var(--accent-bronze)] hover:text-[var(--accent-umber)] transition-colors group mt-6 tracking-[0.1em] uppercase`}>
+                                        <span className={`${poppins.className} font-semibold inline-flex items-center gap-2 text-[12px] text-[var(--accent-bronze)] mt-6 tracking-[0.1em] uppercase cursor-pointer`}>
                                             <span>View all FAQs</span>
-                                            <svg className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                                                 <path d="M5 12h14M12 5l7 7-7 7" />
                                             </svg>
-                                        </Link>
+                                        </span>
                                     </div>
                                     <div className="flex-1"><FAQAccordion /></div>
                                 </div>
@@ -438,7 +438,7 @@ export default function Home() {
 
             {/* ── Chatbot Widget ── */}
             <div className="relative max-w-[1440px] mx-auto">
-                <div className="chat-widget absolute -top-8 right-6 sm:right-10 flex items-center gap-2.5 px-5 py-3 pl-3 rounded-full shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300 z-50 border border-[var(--accent-gold)]/20 hover:border-[var(--accent-gold)]/40"
+                <div className="chat-widget absolute -top-8 right-6 sm:right-10 flex items-center gap-2.5 px-5 py-3 pl-3 rounded-full shadow-lg cursor-pointer z-50 border border-[var(--accent-gold)]/20"
                     style={{ background: 'linear-gradient(135deg, rgba(253,248,244,0.95), rgba(244,226,216,0.95))', backdropFilter: 'blur(12px)' }}>
                     <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
                         style={{ background: 'linear-gradient(135deg, var(--accent-gold), var(--accent-bronze))' }}>
@@ -460,19 +460,19 @@ export default function Home() {
                         <div>
                             <h4 className={`${poppins.className} font-black text-[13px] uppercase tracking-[0.25em] text-[var(--accent-gold)] mb-5`}>Company</h4>
                             <div className="flex flex-col gap-3">
-                                <Link href="/" className={`${poppins.className} footer-link text-[15px] text-[#8B7E72] hover:text-[var(--accent-champagne)]`}>Home</Link>
-                                <Link href="/privacy" className={`${poppins.className} footer-link text-[15px] text-[#8B7E72] hover:text-[var(--accent-champagne)]`}>Privacy Policy</Link>
-                                <Link href="/terms" className={`${poppins.className} footer-link text-[15px] text-[#8B7E72] hover:text-[var(--accent-champagne)]`}>Terms of Service</Link>
-                                <Link href="/contact" className={`${poppins.className} footer-link text-[15px] text-[#8B7E72] hover:text-[var(--accent-champagne)]`}>Contact Us</Link>
+                                <span className={`${poppins.className} footer-link text-[15px] text-[#8B7E72] cursor-pointer`}>Home</span>
+                                <span className={`${poppins.className} footer-link text-[15px] text-[#8B7E72] cursor-pointer`}>Privacy Policy</span>
+                                <span className={`${poppins.className} footer-link text-[15px] text-[#8B7E72] cursor-pointer`}>Terms of Service</span>
+                                <span className={`${poppins.className} footer-link text-[15px] text-[#8B7E72] cursor-pointer`}>Contact Us</span>
                             </div>
                         </div>
                         <div>
                             <h4 className={`${poppins.className} font-black text-[13px] uppercase tracking-[0.25em] text-[var(--accent-gold)] mb-5`}>Resources</h4>
                             <div className="flex flex-col gap-3">
-                                <Link href="/" className={`${poppins.className} footer-link text-[15px] text-[#8B7E72] hover:text-[var(--accent-champagne)]`}>About Us</Link>
-                                <Link href="/pricing" className={`${poppins.className} footer-link text-[15px] text-[#8B7E72] hover:text-[var(--accent-champagne)]`}>Pricing</Link>
-                                <Link href="/faq" className={`${poppins.className} footer-link text-[15px] text-[#8B7E72] hover:text-[var(--accent-champagne)]`}>FAQ</Link>
-                                <Link href="/" className={`${poppins.className} footer-link text-[15px] text-[#8B7E72] hover:text-[var(--accent-champagne)]`}>Resources</Link>
+                                <span className={`${poppins.className} footer-link text-[15px] text-[#8B7E72] cursor-pointer`}>About Us</span>
+                                <span className={`${poppins.className} footer-link text-[15px] text-[#8B7E72] cursor-pointer`}>Pricing</span>
+                                <span className={`${poppins.className} footer-link text-[15px] text-[#8B7E72] cursor-pointer`}>FAQ</span>
+                                <span className={`${poppins.className} footer-link text-[15px] text-[#8B7E72] cursor-pointer`}>Resources</span>
                             </div>
                         </div>
                         <div>
@@ -491,9 +491,9 @@ export default function Home() {
                                 <input type="email" placeholder="you@email.com"
                                     className={`${poppins.className} px-4 py-2.5 border border-[var(--accent-gold)]/15 rounded-full bg-white/[0.04] text-[var(--accent-champagne)] text-[14px] outline-none flex-1 min-w-0 focus:border-[var(--accent-gold)]/40 transition-colors placeholder:text-[#6B5E54] tracking-wide`}
                                 />
-                                <button className={`${poppins.className} font-bold btn-matte px-4 py-2.5 rounded-full text-[13px] tracking-[0.1em] uppercase flex-shrink-0`}>
+                                <span className={`${poppins.className} font-bold btn-matte px-4 py-2.5 rounded-full text-[13px] tracking-[0.1em] uppercase flex-shrink-0 cursor-pointer`}>
                                     Subscribe
-                                </button>
+                                </span>
                             </div>
                         </div>
                     </div>

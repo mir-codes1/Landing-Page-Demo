@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import Link from 'next/link';
+// Link removed — display-only mode
 import { motion, type MotionValue } from 'framer-motion';
 
 // ── Props from GallerySection ────────────────────────────
@@ -182,13 +182,12 @@ export default function CardCarousel({
                         {playingId === card.id ? '0:12' : '0:00'}
                     </span>
                 </div>
-                <Link
-                    href="/create"
-                    className="btn-matte block w-full text-center py-2.5 rounded-full text-[0.6875rem] font-semibold tracking-[0.08em] uppercase"
+                <span
+                    className="btn-matte block w-full text-center py-2.5 rounded-full text-[0.6875rem] font-semibold tracking-[0.08em] uppercase cursor-pointer"
                     style={{ fontFamily: 'var(--font-poppins, sans-serif)' }}
                 >
                     Make one like this
-                </Link>
+                </span>
             </div>
         </>
     );
